@@ -1,0 +1,27 @@
+<div class="col-lg-3">
+	<div class="side-bar">
+		<div class="card card-block">
+			<!--  <img src="{{ (user.img) ? user.img : 'assets/img/profile.jpg'}}" class="rounded-circle img-fluid">-->
+			<h6 class="card-title">{{user.name}}</h6>
+			<p class="card-text"><i class="fa fa-map-marker"></i> {{city}}</p>
+		</div>
+		<div class="list-group">
+			<!--  <a [routerLink]="['/account/dashboards']" class="list-group-item" [ngClass]="{active: link=='dashboards'}">Dashboard
+				<span class="float-xs-right"><i class="fa fa-chevron-right"></i></span>
+			</a>-->
+			<a [routerLink]="['/account/profile']" class="list-group-item" [ngClass]="{active: link=='profile'}">Edit Profile
+				<span class="float-xs-right"><i class="fa fa-chevron-right"></i></span>
+			</a>
+
+			<a [routerLink]="['/account/userdetails']" class="list-group-item" [ngClass]="{active: link=='userdetails'}">Booking History
+				<span class="float-xs-right"><i class="fa fa-chevron-right"></i></span>
+			</a>
+			<!--<a [routerLink]="['/account/fav']" class="list-group-item" [ngClass]="{active: link=='fav'}">Favourite Services
+				<span class="float-xs-right"><i class="fa fa-chevron-right"></i></span>
+			</a>-->
+			<!--<a [routerLink]="['/account/my-address']" class="list-group-item" [ngClass]="{active: link=='my-address'}">My addresses
+				<span class="float-xs-right"><i class="fa fa-chevron-right"></i></span>
+			</a>-->
+		</div>
+	</div>
+</div>

@@ -1,0 +1,129 @@
+<header>
+	<main-nav></main-nav>
+</header>
+<div class="hm-gray-strong">
+	<div class="full-bg">
+		<div class="container">
+			<div class="row" id="profile-page">
+				<side-menu></side-menu>
+				<div class="col-lg-9">
+					<div class="profile-view">
+						<h5>Booking History</h5>
+						<div class="row">
+							<div class="col-md-6 col-xs-12" *ngFor="let booking of bookingss ">
+								<div class="card card-profile">
+									<div class="card-header default-color-light">
+										<i></i><h4>{{booking.titel}}</h4>
+										<span class="tag tag-danger pull-right" *ngIf="booking.status == 'new'">
+											<i class="fa fa-minus-circle"></i>{{booking.status}}
+										</span>
+										<span class="tag tag-warning pull-right" *ngIf="booking.status == 'accepted'">
+											<i class="fa fa-clock-o"></i>{{booking.status}}
+										</span>
+										<span class="tag tag-success pull-right" *ngIf="booking.status == 'completed'">
+											<i class="fa fa-check"></i>{{booking.status}}
+										</span>
+
+									</div>
+									<div class="card-block">
+										<ul>
+											<li class="">Booking Number: <span>{{booking.id}}</span></li>
+											<li class="">Bill: 
+												<span>
+													<i class="fa fa-inr"></i>{{(booking.cost) ? booking.cost : '0'}}
+												</span>
+											</li>
+											<li class="">Location: <span> <i class="fa fa-marker"></i>{{booking.address.house}},{{booking.address.landmark}}, {{booking.address.locality}} {{booking.city}}</span>
+											</li>
+											<li class="">Service Rating 
+												<span>
+													<i class="fa fa-star rated"></i>
+													<i class="fa fa-star rated"></i>
+													<i class="fa fa-star rated"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</span>
+											</li>
+											<li>
+												<span class="tag time-slot">{{booking.appointment.timeslot}}</span>
+												<span class="tag date">{{booking.appointment.date | date:"dd/MM/yy"}}</span>
+											</li>
+										</ul>
+									</div>
+									<div class="card-footer">
+										<a  (click)="viewDetailsModal({number:booking.id,bill:booking.cost,house:booking.address.house,landmark:booking.address.landmark,locality:booking.address.locality})"  class="btn btn-outline-primary waves-effect" >View Details</a>
+										<a  (click)="viewInvoiceModal({number:booking.id,bill:booking.cost,house:booking.address.house,landmark:booking.address.landmark,locality:booking.address.locality})"  class="btn btn-outline-primary waves-effect">View Invoice</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	
+	
+	
+	
+	<!-- - -->
+	<div class="hiddendivfade in"
+	[ngClass]="{'modal-backdrop':viewInvoce }"></div>	
+		
+		
+		<div class="modal fade modal-ext "
+	[ngClass]="{'modal-open': viewInvoce}" id="modal-login" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true" (click)="viewinvoicediss()">×</span>
+				</button>
+				<h3>Invoice Details</h3>
+			</div>
+
+			<div class="modal-body invoice">
+				<ul>
+					<li class="">Booking Number: <span>{{bookingNumber}}</span></li>
+					<li class="">Bill: <span><i class="fa fa-inr"></i>{{cost}}</span></li>
+					<li class="">Location: <span><i class="fa fa-marker"></i>{{location}}</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	
+	<!-- - -->		
+		<div class="hiddendivfade in"
+	[ngClass]="{'modal-backdrop':viewDetails }"></div>	
+		
+		
+		<div class="modal fade modal-ext "
+	[ngClass]="{'modal-open': viewDetails}" id="modal-login" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true" (click)="viewdeatilsdiss()">×</span>
+				</button>
+				<h3>View Details</h3>
+			</div>
+
+			<div class="modal-body view-details">
+				<ul>
+					<li class="">Booking Number: <span>{{bookingNumber}}</span></li>
+					<li class="">Bill: <span><i class="fa fa-inr"></i>{{cost}}</span></li>
+					<li class="">Location: <span><i class="fa fa-marker"></i>{{location}}</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+		</div>
+	</div>
+</div>

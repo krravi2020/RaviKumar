@@ -1,0 +1,124 @@
+<header>
+	<main-nav></main-nav>
+</header>
+<div class="hm-gray-strong">
+	<div class="full-bg">
+		<div class="container">
+			<div class="row" id="profile-page">
+				<side-menu></side-menu>
+				<div class="col-lg-9">
+					<div class="profile-view">
+						<h5>My Addresses</h5>
+						<div class="row">
+							<div class="col-md-6 col-xs-12">
+								<div class="card card-profile">
+									<div class="card-header default-color-light my-address-title">
+										home
+									</div>
+									<div class="card-block">
+										<ul>
+											<li class="">Address Details: <span><i class="fa fa-marker"></i>Lajpat Nagar, Delhi NCR</span></li>
+										</ul>
+									</div>
+									<div class="card-footer">
+										<a href="" title="" class="btn btn-outline-primary waves-effect"data-toggle="modal" data-target="#modal-edit-my-address">Edit Address</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-xs-12">
+								<div class="card card-profile">
+									<div class="card-header default-color-light my-address-title">
+										office
+									</div>
+									<div class="card-block">
+										<ul>
+											<li class="">Address Details: <span><i class="fa fa-marker"></i>Lajpat Nagar, Delhi NCR</span></li>
+										</ul>
+									</div>
+									<div class="card-footer">
+										<a href="" title="" class="btn btn-outline-primary waves-effect" data-toggle="modal" data-target="#modal-edit-my-address">Edit Address</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-xs-12">
+								<div class="card card-profile">
+									<div class="card-header default-color-light my-address-title">
+										office
+									</div>
+									<div class="card-block">
+										<ul>
+											<li class="">Address Details: <span><i class="fa fa-marker"></i>Lajpat Nagar, Delhi NCR</span></li>
+										</ul>
+									</div>
+									<div class="card-footer">
+										<a href="" title="" class="btn btn-outline-primary waves-effect" data-toggle="modal" data-target="#modal-edit-my-address">Edit Address</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="add-address">
+							<a href="" title="" class="btn btn-success"  data-toggle="modal" data-target="#modal-add-my-address"><i class="fa fa-plus"></i> Add new address</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade modal-ext" id="modal-add-my-address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h3>Add New Address</h3>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="">House/Flat no</label>
+							<input type="text" class="form-control" id="" name="address" placeholder="">
+						</div>
+						<div class="form-group">
+							<label for="">Landmark</label>
+							<input type="text" class="form-control" id="" name="landmark" placeholder="">
+						</div>
+						<div class="form-group">
+							<label for="">Locality</label>
+							<input type="text" class="form-control" id="" name="locality" placeholder="">
+						</div>
+						<button type="button" class="btn btn-success text-right">SAVE</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade modal-ext" id="modal-edit-my-address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h3>Edit Address</h3>
+					</div>
+
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="">House/Flat no</label>
+							<input type="text" class="form-control" value="" name="address" id="" placeholder="">
+						</div>
+						<div class="form-group">
+							<label for="">Landmark</label>
+							<input type="text" class="form-control" value="" name="landmark" id="" placeholder="">
+						</div>
+						<div class="form-group">
+							<label for="">Locality</label>
+							<input type="text" class="form-control" value="" name="locality" id="" placeholder="">
+						</div>
+						
+						<button type="button" class="btn btn-danger text-left">Delete</button>
+						<button type="button" class="btn btn-success text-right">SAVE</button>
+					</div>
+				</div>
+			</div>
+		</div>

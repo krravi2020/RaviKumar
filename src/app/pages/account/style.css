@@ -1,0 +1,83 @@
+#profile-page {
+    margin-top: 6rem;
+}
+
+#profile-page .profile-view h5 {
+    font-weight: 900;
+    text-align: left;
+    letter-spacing: 1px;
+    color: rgba(56, 56, 56, 0.95);
+    margin-bottom: 1rem;
+}
+#profile-page .profile-view input[type=text] {
+    width: 96%;
+}
+#profile-page .profile-view .form-control:disabled,
+#profile-page .profile-view .form-control[readonly] {
+    border-bottom: 1px solid #e0e0e0;
+    color: #b9b9b9;
+}
+#profile-page .profile-view .add-address {
+    text-align: center;
+}
+#profile-page .profile-view .add-address a .fa {
+    margin-right: 0.5rem;
+}
+#profile-page .profile-view .card-profile .card-header {
+    background-color: #FFF;
+}
+#profile-page .profile-view .card-profile .card-header span.tag {
+    font-size: 0.6rem;
+    line-height: 1rem;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+#profile-page .profile-view .card-profile .card-header span.tag i {
+    font-weight: 100;
+    margin-right: 0.2rem;
+}
+#profile-page .profile-view .card-profile .card-header.my-address-title {
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+#profile-page .profile-view .card-profile .card-block {
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 1.25rem;
+}
+#profile-page .profile-view .card-profile .card-block span {
+    font-weight: 500;
+    color: #5d5d5d;
+    margin-left: 0.6rem;
+}
+#profile-page .profile-view .card-profile .card-block span.tag {
+    line-height: 1rem;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+#profile-page .profile-view .card-profile span.tag.time-slot {
+    background-color: #ea555c;
+    color: #FFF;
+}
+#profile-page .profile-view .card-profile span.tag.date {
+    color: #FFF;
+    background-color: #ff8d4b;
+}
+#profile-page .profile-view .card-profile .card-block ul li {
+    margin-bottom: 0.5rem;
+}
+#profile-page .profile-view .card-profile .card-block ul li .fa-star.rated {
+    background: 0 0 !important;
+    color: #FFE623 !important;
+    text-shadow: 0 -1px 0 #DDC507, -1px 0 0 #DDC507, 0 1px 0 #DDC507, 1px 0 0 #DDC507 !important;
+}
+#profile-page .profile-view .card-profile .card-footer {
+    padding: 0.5rem;
+}
+#profile-page .profile-view .card-profile .card-footer .btn {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    text-transform: capitalize;
+}

@@ -1,0 +1,63 @@
+.modal-ext .modal-content .modal-body{
+	padding: 0.6rem 2rem 1rem;
+}
+.modal-ext .modal-content .modal-body .form-control,.modal-ext .modal-content .modal-body .form-group{
+	margin-bottom: 0.5rem;
+}
+#modal-login input {
+	width: 96%;
+}
+#modal-login .btn {
+	margin: 0;
+	width: 100%;
+}
+#modal-login .btn.btn-fb.half{
+	width: 49%;
+}
+#modal-login .btn.btn-fb.google.half{
+	background-color: #d34836;
+}
+#modal-login .btn.btn-fb.register{
+	background-color: #FFF;
+	color: #d23737 !important;
+	border: 1px solid #d23737;
+}
+#modal-login .btn.btn-fb.register:hover{
+	background-color: #FFF;
+}
+#modal-login .btn .fa.left {
+	margin-right: 1rem;
+}
+#modal-login .modal-footer {
+	padding: 2rem 2rem 1rem;
+}
+#modal-login .socialLoginDiv {
+	text-align: center;
+	margin: 20px 0;
+}
+#modal-login .socialLoginDiv .separator {
+	position: relative;
+}
+#modal-login .socialLoginDiv .separator:before,
+#modal-login .socialLoginDiv .separator:after {
+	content: '';
+	position: absolute;
+	height: 5px;
+	top: 7px;
+	border-top: 1px solid #e0e0e0;
+	width: 32px;
+}
+#modal-login .socialLoginDiv .separator:before {
+	margin-left: -45px;
+}
+#modal-login .socialLoginDiv .separator:after {
+	margin-left: 14px;
+}
+#modal-login .socialLoginDiv div {
+	color: #aaa;
+	margin-bottom: 15px;
+	font-size: 11px;
+}
+
+
+

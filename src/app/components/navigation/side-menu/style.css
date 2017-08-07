@@ -1,0 +1,21 @@
+.side-bar .card img {
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.side-bar .card-title {
+    margin-top: 1rem;
+    color: #33373D;
+    text-align: center;
+}
+.side-bar .card-text {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.68);
+}
+.side-bar .list-group a {
+    color: rgba(56, 56, 56, 0.95);
+}
+.side-bar .list-group .list-group-item.active {
+    color: rgba(255, 255, 255, 0.95);
+    background-color: #fb3a3a;
+    border-color: rgba(0, 0, 0, 0.05);
+}

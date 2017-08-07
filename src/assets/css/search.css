@@ -1,0 +1,295 @@
+.search-container h1,.search-container h2 {
+  color: #FFF; 
+text-shadow: 0 0 0.31em #000;
+}
+
+.heroSection {
+  position: absolute;
+  width: 65%; }
+
+@media screen and (max-width: 768px) {
+  .heroSection {
+    padding: 0 18px;
+    height: auto; } }
+
+.heroSection.borderOverlay {
+  border: 10px solid rgba(0, 0, 0, 0.4);
+  width: 65%;
+  border-radius: 2px; }
+
+@media screen and (max-width: 768px) {
+  .heroSection .borderOverlay {
+    border: 0;
+    width: 100%;
+    margin-bottom: 50px; } }
+
+.heroSection .animationWrapperClass {
+  margin-left: 10px; }
+
+.DropDownContainerClass {
+  display: inline-block;
+  float: left; }
+
+@media screen and (max-width: 768px) {
+  .heroSection .animationWrapperClass {
+    margin-top: 65px;
+    text-align: center; } }
+
+@media screen and (max-width: 768px) {
+  .heroSection {
+    position: static;
+    width: 100%;
+    height: auto !important; } }
+
+.searchBoxContainer {
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  border-radius: 2px;
+  margin-left: 1px; }
+
+.searchBoxContainer select {
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+@media screen and (max-width: 768px) {
+  .searchBoxContainer {
+    border: 0;
+    margin-top: 85px; } }
+
+.searchBoxContainer .SearchContainerClass {
+  width: calc(100% - 120px); }
+
+@media screen and (max-width: 768px) {
+  .searchBoxContainer .SearchContainerClass {
+    display: none;
+    transition: display 0.4s; } }
+
+.searchBoxContainer .searchDummy {
+  height: 48px;
+  padding: 14px;
+  color: #bbb;
+  letter-spacing: 0.4px;
+  border-radius: 2px;
+  font-size: 14px;
+  display: none; }
+
+@media screen and (max-width: 768px) {
+  .searchBoxContainer .searchDummy {
+    display: block;
+    font-size: 14px;
+    padding: 14px 16px; } }
+
+.searchBoxContainer .searchDummy .searchIcon:before {
+  margin-right: 10px;
+  color: #000; }
+
+.searchBoxContainer .searchVisibleMobile {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 999999; }
+
+.searchBoxContainer .searchVisibleMobile .popularServiceMobile {
+  display: block;
+  height: 100%; }
+
+.searchBoxContainer .searchVisibleMobile .popularServiceMobile h3 {
+  margin: 0;
+  padding: 13px 0 11px 20px;
+  background-color: #f2f2f2;
+  height: 48px;
+  font-size: 14px; }
+
+.searchBoxContainer .searchVisibleMobile .popularServiceMobile ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; }
+
+.searchBoxContainer .searchVisibleMobile .popularServiceMobile ul li {
+  position: relative;
+  height: 48px; }
+
+.searchBoxContainer .searchVisibleMobile .popularServiceMobile ul li a {
+  padding: 13px 0 11px 20px;
+  display: inline-block;
+  color: #333;
+  width: 100%; }
+
+.searchBoxContainer .searchVisibleMobile .popularServiceMobile ul li a .trendingTitle {
+  margin-left: 40px; }
+
+.searchBoxContainer .searchVisibleMobile .popularServiceMobile ul li a .trendingIcons span:before {
+  color: #333;
+  position: absolute;
+  margin-right: 20px;
+  top: 12px;
+  font-size: 24px; }
+
+.searchBoxContainer .searchVisibleMobile .searchBackBtn {
+  position: absolute;
+  top: 14px;
+  z-index: 9;
+  font-size: 16px;
+  left: 20px; }
+
+.searchBoxContainer .searchVisibleMobile .SearchContainerClass {
+  display: block;
+  width: 100%; }
+
+@media screen and (max-width: 768px) {
+  .searchBoxContainer .searchVisibleMobile .SearchContainerClass {
+    height: 100%; } }
+
+.searchBoxContainer .searchVisibleMobile .SearchInputClass {
+  width: 80%;
+  padding-left: 58px; }
+
+.searchBoxContainer .searchVisibleMobile .DropDownClass {
+  width: 100%; }
+
+@media screen and (max-width: 768px) {
+  .searchBoxContainer .searchVisibleMobile .DropDownClass {
+    position: relative;
+    top: 0 !important; } }
+
+input[type=search-md], input[type=search], input[type=search]:focus:not([readonly]) {
+  border: none;
+  padding: 0;
+  box-shadow: none; }
+
+.searchBoxContainer .SearchInputClass {
+  height: 48px !important;
+  width: 100%;
+  font-size: 14px;
+  margin-top: 0;
+  padding-right: 0;
+  border-radius: 0;
+  margin-left: 20px; }
+
+.searchBoxContainer .SearchCTA {
+  background-color: #df0303;
+  height: 48px;
+  float: right;
+  outline: 0;
+  border: 0;
+  width: 120px; }
+
+.searchBoxContainer .SearchCTA a {
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  text-decoration: none; }
+
+@media screen and (max-width: 768px) {
+  .searchBoxContainer .SearchCTA {
+    display: none; } }
+
+.searchBoxContainer .CityDropClass {
+  top: 44px;
+  left: -6px;
+  width: 460px; }
+
+.searchBoxContainer .NoCityDropClass {
+  top: 52px;
+  width: 100%; }
+
+.searchBoxContainer .CityBoxClass {
+  height: 36px;
+  padding: 10px 20px;
+  color: #fff;
+  padding-right: 0;
+  width: 114px; }
+
+.CityContainer {
+  background-color: #df0303;
+  padding: 5px 20px;
+  font-size: 12px;
+  border-radius: 2px;
+  display: inline-block;
+  height: 24px;
+  cursor: pointer; }
+
+.CityContainerClass {
+  float: left;
+  margin-top: 6px;
+  width: 115px;
+  margin-left: 6px; }
+
+@media screen and (max-width: 768px) {
+  .CityContainerClass {
+    display: none; } }
+
+.mobileCityBox {
+  position: absolute;
+  top: -67px;
+  width: 100%;
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .mobileCityBox {
+      display: none; } }
+
+.CityDropContainer {
+  position: relative; }
+
+.CityDropDown {
+  position: absolute;
+  top: 40px;
+  width: 468px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 2px;
+  z-index: 99; }
+
+.downArrowClass:before {
+  content: attr(data-icon);
+  display: block;
+  font-family: "ucglyphs" !important;
+  color: #fff;
+  transform: rotate(90deg);
+  float: right;
+  margin-top: 3px;
+  margin-right: 6px; }
+
+.CityHeading {
+  border-bottom: 1px solid #ddd;
+  padding: 8px 10px;
+  color: #333;
+  font-size: 12px; }
+
+.CityList {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px; }
+
+.CityItem {
+  float: left;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 9px 20px; }
+  .CityItem:hover {
+    background-color: #df0303;
+    color: #fff; }
+
+.CTAContainer {
+  width: calc(100% - 121px);
+  float: left; }
+  @media screen and (max-width: 768px) {
+    .CTAContainer {
+      width: 100%;
+      float: none; } }
+  @media screen and (max-width: 768px) {
+    .CTAContainer .popularServiceMobile {
+      display: none; } }

@@ -1,0 +1,186 @@
+.full-bg-img{
+	overflow: auto !important;
+}
+.hidden-input{
+	height: 0.00001px !important;
+	width: 0.0001px !important;
+	padding: 0;
+	margin: 0;
+}
+#book-page {
+	margin-top: 6rem;
+	margin-bottom: 2rem;
+}
+#book-page .progress{
+	width: 85%;
+	display: inline-block;
+}
+#book-page span.progress-complete{
+	font-size: 12px;
+	display: inline-block;
+	text-align: right;
+	margin-top: 2rem;
+	margin-left: 0.6rem;
+	line-height: 5px;
+	vertical-align: top;
+	color: #777777;
+}
+#book-page .breadcrumb {
+	background-color: transparent;
+}
+#book-page .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+	content: ">";
+}
+#book-page .author-box {
+	padding: 1.5rem 3rem;
+}
+#book-page .author-box #terms,
+#book-page .author-box #service-questions {} #book-page .author-box h3 {
+	font-weight: 600;
+}
+#book-page .author-box .progress {
+	margin-top: 2rem;
+	height: 5px;
+}
+#book-page .author-box .service-booking-box input {
+	width: 340px;
+}
+#book-page .author-box .service-booking-box h6 {
+	font-weight: 900;
+	text-align: left;
+	margin-bottom: 1rem;
+}
+#book-page .author-box .service-booking-box fieldset.form-group {
+	margin: 1rem;
+}
+#book-page .author-box .service-booking-box ul {
+	margin-bottom: 25px;
+	text-align: left;
+	list-style-type: disc;
+}
+#book-page .author-box .service-booking-box ul li {
+	list-style-type: disc;
+	margin-left: 40px;
+	color: #777777;
+	font-size: 0.9rem;
+	margin-bottom: 0.2rem;
+}
+#book-page .author-box .service-booking-box .footer .back-btn {
+	color: #222222;
+	padding: 1rem 0rem;
+}
+#book-page .author-box .service-booking-box .footer .back-btn .fa {
+	margin-right: 0.5rem;
+}
+#book-page .author-box .service-booking-box .footer .btn {
+	padding: 0.85rem 1.8rem;
+}
+#book-page .author-box .service-booking-box .footer .btn .fa {
+	font-size: 0.8rem;
+	margin-left: 0.5rem;
+}
+[type=checkbox]+label{
+	font-size: 0.8rem;
+	text-transform: capitalize;
+}
+.error-form{
+	text-align: center;
+	background-color: #ff5353;
+	padding: 0.8rem;
+	color: #FFF;
+}
+hr.below-error-hr{
+	margin-top: 0rem;
+}
+.select-style {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #ccc;
+	width: 320px;
+	border-radius: 3px;
+	overflow: hidden;
+	background-color: #fff;
+
+	background: #fff url("../assets/img/arrow-down.png") no-repeat 90% 50%;
+}
+
+.select-style select {
+	display: block;
+	padding: 5px 8px;
+	width: 130%;
+	border: none;
+	color: #4d4d4d;
+	font-family: Montserrat, sans-serif;
+	box-shadow: none;
+	background-color: transparent;
+	background-image: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.select-style select:focus {
+	outline: none;
+}
+fieldset.form-group label.car-cleaner{
+	color: #5c5c5c;
+	font-size: 1rem !important;
+}
+.form-group label{
+	color: #5c5c5c;
+}
+ul.service-details{
+	margin-left: 10px;
+}
+.form-group.desc{
+	margin-left: 1rem;
+}
+fieldset.form-group label{
+	color: #5c5c5c;
+	font-size: 0.8rem !important;
+}
+
+textarea#desc{
+	max-width: 450px;
+	width: 100%; 
+	max-height: 150px; 
+	height: 80px; 
+	padding: 5px;
+}
+[type=radio].with-gap:checked+label:before{
+	border: 2px solid #5cb85c;
+}
+[type=radio].with-gap:checked+label:after{
+	background-color: #5cb85c;
+}
+.complete-round {
+	text-align: center;
+}
+.complete-text{
+	margin-top: 25px;
+}
+.complete-round i{
+	padding: 34px;
+	color: #FFF;
+	background-color: #5cb85c;
+	border-radius: 50%;
+	font-size: 4rem;
+	font-weight: lighter;
+}
+@media (max-width: 772px){
+	.author-box {
+		text-align: left !important;
+	}
+	.progress{
+		width: 100% !important;
+		display: block;
+	}
+	#book-page span.progress-complete{
+		display: block;
+		text-align: center;
+		margin-top: 0px;
+	}
+	#book-page .author-box{
+		padding: 1.5rem 2rem;
+	}
+}

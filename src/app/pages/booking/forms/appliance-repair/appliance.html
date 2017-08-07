@@ -1,0 +1,445 @@
+<header>
+	<main-nav #navbar></main-nav>
+</header>
+
+<div class="hm-gray-strong">
+	<div class="full-bg-img">
+		<div class="container">
+			<div class="row" id="book-page">
+				<div class="col-lg-8 offset-lg-2">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">{{city}}</a></li>
+						<li class="breadcrumb-item active">{{expertise}}</li>
+					</ol>
+					<form [formGroup]="requestForm" novalidate>
+						<div class="author-box">
+							<div class="row">
+								<h3 class="h3-responsive text-xs-center">{{expertise}}</h3>
+								<progress class="progress progress-success" value="{{progress}}" max="100"></progress>
+								<span class="progress-complete">{{progressint}}% Complete</span>
+								<hr>
+								
+								<!-- description -->
+								
+								
+								<!-- description -->
+								
+								<div class="col-xs-12 service-booking-box" id="terms" *ngIf="(stage==1)" [@enterAnimation]="(stage==1)">
+									<h1>Service Description</h1>
+								<div>{{description}}</div>
+								<hr>
+								<br>
+								
+									
+									<ul>
+										<h6>Servicesathi Guarantee:</h6>
+										<li>Background checked and trained technicians</li>
+										<li>21 days service guarantee</li>
+										<li>Rs.10000 Insurance in case of any damage</li>
+									</ul>
+									<ul>
+										<h6>Pricing:</h6>
+										<li>Fixed charges for installation, uninstallation and servicing</li>
+										<li>Charges for Repairs will be quoted upon inspection</li>
+										<li>Rs.150 inspection charges if no service is availed post inspection </li>
+										<li>After service completion – Online payment link will be sent via sms/email</li>
+										<li>Cost of any spares will be charged extra</li>
+									</ul>
+									<hr>
+									<div class="footer">
+									
+										<a href="javascript:void(0);" class="btn btn-primary pull-right" (click)="next();" *ngIf="stageStates[stage-1]">NEXT<i class="fa fa-chevron-right right"></i></a>
+									</div>
+								</div>
+								<div class="col-xs-12 service-booking-box" id="service-questions" *ngIf="(stage==2)" [@enterAnimation]="(stage==2)">
+									<h6>What type of work is required?</h6>
+									<div formGroupName="jobs">
+										<fieldset class="form-group">
+											<label>Select Appliance:</label>
+											<div class="select-style">
+												<select (change)="onSelect($event.target.value)" formControlName="appliance_name">
+													<option *ngFor="let appliance of appliances" value={{appliance}}>{{appliance}}</option>
+												</select>
+											</div>
+										</fieldset>
+										<fieldset class="form-group">
+											<label>Select Brand:</label>
+											<div class="select-style">
+												<select formControlName="appliance_brand">
+													<option value="0">--Select Brand--</option>
+													<option *ngFor="let brand of brands" value= {{brand}}>{{brand}}</option>
+												</select>
+											</div>
+										</fieldset>
+										<fieldset class="form-group">
+											<label>Select Capacity:</label>
+											<div class="select-style">
+												<select formControlName="appliance_capacity"(change)="onCapacitySelect($event.target.value)">
+													<option value="0">--Select Capacity--</option>
+													<option *ngFor="let capacity of capacities" value= {{capacity}}>{{capacity}}</option>
+												</select>
+											</div>
+										</fieldset>
+										<fieldset class="form-group">
+											<label>Select Type:</label>
+											<div class="select-style">
+												<select formControlName="appliance_type"(change)="onTypeSelect($event.target.value)">
+													<option value="0">--Select Type--</option>
+													<option *ngFor="let type of types" value= {{type}}>{{type}}</option>
+												</select>
+											</div>
+										</fieldset>
+										<fieldset class="form-group">
+											<label>Select Work:</label>
+											<div class="select-style">
+												<select formControlName="appliance_work" (change)="onWorkSelect($event.target.value)">
+													<option value="0">--Select Work--</option>
+													<option *ngFor="let work of works" value= {{work}}>{{work}}</option>
+												</select>
+											</div>
+										</fieldset>
+										<fieldset class="form-group">
+											<label>Estimated Cost</label>
+											<div>Rs. {{cost}}</div>
+											<input name="costing" formControlName="cost" class="hidden-input" value="{{cost}}" />
+
+										</fieldset> 
+										<div class="form-group desc">
+											<label for="desc">Any Service Instructions</label>
+											<textarea type="text" class="form-control" formControlName="desc" id="desc" name="desc" placeholder=""></textarea>
+										</div>
+										<!-- <div class="error-form">Please select an option to continue.</div> -->
+										<hr class="below-error-hr">
+										<div class="footer">
+											<a href="javascript:void(0);" class="back-btn pull-left" (click)="previous();"><i class="fa fa-arrow-left left"></i>BACK</a>
+											<a href="javascript:void(0);" class="btn btn-primary pull-right" (click)="next();" *ngIf="stageStates[stage-1]">NEXT<i class="fa fa-chevron-right right"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 service-booking-box" id="service-address" *ngIf="(stage==3)" [@enterAnimation]="(stage==3)">
+									<div formGroupName="address">
+										<h6>Where do you want the service?</h6>
+										<div class="form-group">
+											<label for="house">House/Flat no</label>
+											<input type="text" class="form-control" formControlName="house" id="house" [(ngModel)]="address.address" name="house" placeholder="">
+										</div>
+										<div class="form-group">
+											<label for="">Landmark</label>
+											<input type="text" class="form-control" formControlName="landmark" id="landmark" name="landmark" placeholder="">
+										</div>
+										<div class="form-group">
+											<label for="locality">Locality:</label>
+											<input auto-complete class="form-control" formControlName="locality" [source]="localities" 
+											value-property-name="id" display-property-name="name" [list-formatter]="autocompleListFormatter" (valueChanged)="localitySelectHandler($event)"/>
+										</div>
+										
+										
+										
+										<hr>
+										<div class="footer">
+											<a href="javascript:void(0);" class="back-btn pull-left" (click)="previous();"><i class="fa fa-arrow-left left"></i>BACK</a>
+											<a href="javascript:void(0);" class="btn btn-primary pull-right" (click)="nextValidation();" *ngIf="stageStates[stage-1]">NEXT<i class="fa fa-chevron-right right"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 service-booking-box" id="service-address" *ngIf="(stage==4)" [@enterAnimation]="(stage==4)">
+									<div formGroupName="appointment">
+										<h6>When do you want the service?</h6>
+										<div class="form-group">
+											<label for="house">Date</label>
+											<input type="date" class="form-control" formControlName="date" [min]="today" id="date" name="date" placeholder="" (input)="onSclectTime($event)">
+										</div>
+										<div class="form-group">
+											<label for="">Landmark</label>
+											<select class="form-control"style="width: 356px;" formControlName="timeslot" id="timeslot" name="timeslot" (input)="onSclectTime($event)">
+												<option value="">Select Timeslot</option>
+												<option *ngFor="let time of times"  value={{time}}>{{time}}</option>
+												
+											</select>
+										</div>
+										<!-- vendors near to location -->
+										<div class="form-group" *ngIf="vendorAvilable">
+											<label for="locality">Vendors are available at:</label>
+											<input auto-complete class="form-control" formControlName="vendordisp" [source]="vendors" 
+											value-property-name="id1" display-property-name="name1" [list-formatter]="autocompleListFormatterVendor" (valueChanged)="vendorSelectHandler($event)"/>
+										</div>
+										<!-- ///vendors near to location/// -->
+										<!-- ///vendors near to location/// -->
+										<hr>
+										<div class="footer">
+											<a href="javascript:void(0);" class="back-btn pull-left" (click)="previous();"><i class="fa fa-arrow-left left"></i>BACK</a>
+											<a href="javascript:void(0);" class="btn btn-primary pull-right" (click)="checkout();" *ngIf="stageStates[stage-1]">Checkout<i class="fa fa-chevron-right right"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 service-booking-box" id="service-address" *ngIf="(stage==5)" [@enterAnimation]="(stage==5)">
+									<div formGroupName="checkout">
+										<h6>Your Order Summary.</h6>
+										<fieldset class="form-group">
+											<label >Expertise - {{expertise}}</label>
+										</fieldset>
+										<fieldset class="form-group">
+											<label >Order Details - </label>
+											<ul>
+												<li>Appliance - {{order_details.jobs.appliance_name}}</li>
+												<li>Brand - {{order_details.jobs.appliance_brand}}</li>
+												<li>Capacity- {{order_details.jobs.appliance_capacity}}</li>
+												<li>Type- {{order_details.jobs.appliance_type}}</li>
+												<li>Work- {{order_details.jobs.appliance_work}}</li>
+												<li *ngIf="!order_details.jobs.desc == ''">Any Service Instruction - {{order_details.jobs.desc}}</li>
+											</ul>
+										</fieldset>
+										<fieldset class="form-group">
+											<label >Appointment - </label>
+											<ul>
+												<li>Timeslot - {{order_details.appointment.timeslot}}</li>
+												<li>Date - {{order_details.appointment.date}}</li>
+											</ul>
+										</fieldset>
+										<fieldset class="form-group">
+											<label >Address - </label>
+											<ul>
+												<li>House - {{order_details.address.house}}</li>
+												<li>Landmark - {{order_details.address.landmark}}</li>
+												<li>Locality - {{order_details.address.locality | capitalize}}</li>
+											</ul>
+										</fieldset>
+										<fieldset class="form-group">
+											<label >Estimated Cost - {{cost}}</label>
+										</fieldset>
+
+										<hr>
+										<div class="footer">
+											<a href="javascript:void(0);" class="back-btn pull-left" (click)="previous();"><i class="fa fa-arrow-left left"></i>BACK</a>
+											<a href="javascript:void(0);" class="btn btn-primary pull-right" (click)="book();">Book Now<i class="fa fa-chevron-right right"></i></a>
+										</div>
+									</div>
+								</div>
+								<!--<div class="col-xs-12 service-booking-box" id="service-address" *ngIf="(stage==6)" [@enterAnimation]="(stage==6)">
+									<div formGroupName="payment">
+										<h6>Kindly choose your Payment Method.</h6>
+										<fieldset class="form-group">
+											<input type="radio" id="radio1" name="payment" class="with-gap" formControlName="payment" value="paylater">
+											<label for="radio1">Pay after Service</label>
+										</fieldset>
+										<fieldset class="form-group" *ngIf="cost !=='On Visit'">
+											<input type="radio" checked="checked" class="with-gap" id="radio2" name="payment" formControlName="payment" value="payadvance">
+											<label for="radio2">Pay in Advance</label>
+										</fieldset>
+
+										<hr>
+										<div class="footer">
+											<a href="javascript:void(0);" class="back-btn pull-left" (click)="previous();"><i class="fa fa-arrow-left left"></i>BACK</a>
+											<a href="javascript:void(0);" class="btn btn-primary pull-right" (click)="book();" >Book<i class="fa fa-chevron-right right"></i></a>
+										</div>
+									</div>
+								</div>-->
+								<div class="col-xs-12 service-booking-box" id="service-address" *ngIf="(stage==6)" [@enterAnimation]="(stage==6)">
+									<div formGroupName="complete">
+										<div class="complete-round">
+											<i class="fa fa-check"></i>
+											<div class="complete-text">
+												<h4>Your Booking has been completed.</h4>
+												<h4 >Please check notification for vendor confromation.</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			
+			
+			<div class="hiddendivfade in"
+	[ngClass]="{'modal-backdrop': vendornotAvil}"></div>
+
+
+
+<div class="modal fade modal-ext "
+	[ngClass]="{'modal-open': vendornotAvil}" id="modal-login" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-label="Close" class="close" data-dismiss="modal"
+					type="button">
+					  <span aria-hidden="true" (click)="vedorNotavil()">×</span>
+				</button>
+			
+				
+				<h3  style="margin-right: 22%;">Please select available vendor!!! </h3>
+			</div>
+			<div class="container">
+ 
+ 
+    </div>
+    </div>
+		
+
+	</div>
+
+</div>
+
+
+<div class="hiddendivfade in"
+	[ngClass]="{'modal-backdrop': localityNotAvil}"></div>
+
+
+
+<div class="modal fade modal-ext "
+	[ngClass]="{'modal-open': localityNotAvil}" id="modal-login" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-label="Close" class="close" data-dismiss="modal"
+					type="button">
+					  <span aria-hidden="true" (click)="localityDissmis()">×</span>
+				</button>
+			
+				
+				<h3  style="margin-right: 22%;">Locality not available!!!</h3>
+			</div>
+			<div class="container">
+ 
+ 
+    </div>
+    </div>
+		
+
+	</div>
+
+</div>
+
+			
+			
+			
+			<!-- --------- -->
+			<!-- ------------- -->
+			<!-- - -->
+<div class="hiddendivfade in"
+	[ngClass]="{'modal-backdrop': citynotSclect}"></div>
+
+
+
+<div class="modal fade modal-ext "
+	[ngClass]="{'modal-open': citynotSclect}" id="modal-login" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-label="Close" class="close" data-dismiss="modal"
+					type="button">
+					  <span aria-hidden="true" (click)="citymodelDissmis()">×</span>
+				</button>
+			
+				
+				<h3  style="margin-right: 22%;">Please select city!!!</h3>
+			</div>
+			<div class="container">
+ 
+ 
+    </div>
+    </div>
+		
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="hiddendivfade in"
+	[ngClass]="{'modal-backdrop': vendornotSclect}"></div>
+
+
+
+<div class="modal fade modal-ext "
+	[ngClass]="{'modal-open': vendornotSclect}" id="modal-login" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-label="Close" class="close" data-dismiss="modal"
+					type="button">
+					  <span aria-hidden="true" (click)="vedordissp()">×</span>
+				</button>
+			
+				
+				<h3  style="margin-right: 22%;">Please select vendor </h3>
+			</div>
+			<div class="container">
+ 
+ 
+    </div>
+    </div>
+		
+
+	</div>
+
+</div>
+
+
+<!---------------->
+
+
+
+<div class="hiddendivfade in"
+	[ngClass]="{'modal-backdrop': notificationForBooking}"></div>
+
+
+
+<div class="modal fade modal-ext "
+	[ngClass]="{'modal-open': notificationForBooking}" id="modal-login" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-label="Close" class="close" data-dismiss="modal"
+					type="button">
+					  <span aria-hidden="true" (click)="Dissmis()">×</span>
+				</button>
+			
+				
+				<h3  style="margin-right: 22%;">Once our vendor have accepted  your request  then you can proceed for payment... 
+				 please check for notifications!!!</h3>
+			</div>
+			<div class="container">
+ 
+ 
+    </div>
+    </div>
+		
+
+	</div>
+
+</div>
+
+
+<!--  -->
+			
+			<!-- --------- -->
+			
+			
+			
+		</div>
+	</div>
+</div>

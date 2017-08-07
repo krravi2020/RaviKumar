@@ -1,0 +1,837 @@
+<header>
+	<main-nav></main-nav>
+</header>
+
+<div class="hm-gray-strong">
+	<div class="full-bg">
+		<div class="container">
+			<div class="row" id="profile-page">
+
+				<div class="col-lg-11">
+
+
+					<h5 data-reactid=".12nh88wa2lo.1.0.2.0.0" style="margin-left: 49%;">Notifications</h5>
+
+
+					<br>
+
+					<!-----payment notificatipons---->
+					<div class="hiddendivfade in"
+						[ngClass]="{'modal-backdrop': paymentNotification}"></div>
+
+
+
+					<div class="modal fade modal-ext "
+						[ngClass]="{'modal-open': paymentNotification}" id="modal-login"
+						tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+
+
+
+							<div class="hiddendiv modal-content"
+								[ngClass]="{'showdiv': paymentNotification}">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close" (click)="notificationdismiss()">
+										<span aria-hidden="true">&times;</span>
+									</button>
+
+
+									<div class="container">
+										<div class="row">
+											<!-- You can make it whatever width you want. I'm making it full width
+on <= small devices and 4/12 page width on >= medium devices -->
+											<div class="col-xs-12 col-md-12">
+
+
+												<!-- CREDIT CARD FORM STARTS HERE -->
+												<div class="panel panel-default credit-card-box">
+													<div class="panel-heading display-table">
+														<div class="row display-tr">
+															<h3 class="panel-title display-td">Payment Details</h3>
+															<div class="display-td">
+																<img class="img-responsive pull-right"
+																	src="http://i76.imgup.net/accepted_c22e0.png">
+															</div>
+														</div>
+													</div>
+
+
+													<div class="panel-body">
+
+
+														<div *ngIf="formForDiv">
+															<form ngNoForm action="https://secure.payu.in/_payment"
+																method="post" name="payuForm">
+																<input type="hidden" name="hash" value="{{ hashh }}" />
+																<input type="hidden" name="key"
+																	value="{{ MERCHANT_KEY }}" /> <input type="hidden"
+																	name="txnid" value="{{ txnid }}" /> <input
+																	type="hidden" name="hash_string"
+																	value="{{ hash_string }}" /> <input type="hidden"
+																	name="posted" value="{{ posted }}" /> <input
+																	type="hidden" name="surl" value="{{ surl }}" /> <input
+																	type="hidden" name="furl" value="{{ furl }}" /> <input
+																	type="hidden" name="service_provider"
+																	value="payu_paisa" size="64" />
+
+																<div class="form-group">
+																	<label for="">Amount:</label> <input
+																		[value]="inputPayu.amount" type="number"
+																		class="form-control" [(ngModel)]="inputPayu.amount"
+																		placeholder="Amount" name="amount"
+																		[ngModelOptions]="{standalone: true}">
+																</div>
+																<div class="form-group">
+																	<label for="">First Name:</label> <input type="text"
+																		class="form-control" [(ngModel)]="inputPayu.firstname"
+																		placeholder="FirstName" name="firstname"
+																		[ngModelOptions]="{standalone: true}">
+																</div>
+																<div class="form-group">
+																	<label for="">Email:</label> <input type="email"
+																		class="form-control" [(ngModel)]="inputPayu.email"
+																		placeholder="example@gmail.com" name="email"
+																		[ngModelOptions]="{standalone: true}">
+																</div>
+																<div class="form-group">
+																	<label for="">Mobile No:</label> <input type="number"
+																		class="form-control" [(ngModel)]="inputPayu.phone"
+																		placeholder="MobileNumber" name="phone"
+																		[ngModelOptions]="{standalone: true}">
+																</div>
+
+																<div class="form-group">
+
+																	<label>Product Info:</label>
+																	<textarea [(ngModel)]="inputPayu.productinfo"
+																		placeholder="text.." name="productinfo"
+																		[ngModelOptions]="{standalone: true}"></textarea>
+																</div>
+																<h6 class="errormessage1">{{payText}}</h6>
+																<button type="submit" class="btn btn-primary"
+																	(click)="payUaccept();">submit</button>
+															</form>
+														</div>
+
+														<div *ngIf="formForDiv2">
+															<form action="" method="post" name="payuForm">
+																<input type="hidden" name="key"
+																	value="{{ MERCHANT_KEY }}" /> <input type="hidden"
+																	name="hash_string" value="{{ hash_string }}" /> <input
+																	type="hidden" name="hash" value="{{ hashh }}" /> <input
+																	type="hidden" name="posted" value="{{ posted }}" /> <input
+																	type="hidden" name="txnid" value="{{ txnid }}" /> <input
+																	type="hidden" name="surl" value="{{ surl }}" /> <input
+																	type="hidden" name="furl" value="{{ furl }}" /> <input
+																	type="hidden" name="service_provider"
+																	value="payu_paisa" size="64" />
+
+
+																<div class="form-group">
+																	<label for="">Amount:</label> <input disabled=""
+																		type="number" class="form-control"
+																		[(ngModel)]="inputPayu.amount" placeholder="Amount"
+																		name="amount" [ngModelOptions]="{standalone: true}">
+																</div>
+																<div class="form-group">
+																	<label for="">First Name:</label> <input type="text"
+																		class="form-control" [(ngModel)]="inputPayu.firstname"
+																		placeholder="FirstName" name="firstname"
+																		[ngModelOptions]="{standalone: true}">
+																</div>
+																<div class="form-group">
+																	<label for="">Email:</label> <input type="email"
+																		class="form-control" [(ngModel)]="inputPayu.email"
+																		placeholder="example@gmail.com" name="email"
+																		[ngModelOptions]="{standalone: true}">
+																</div>
+																<div class="form-group">
+																	<label for="">Mobile No:</label> <input type="number"
+																		class="form-control" [(ngModel)]="inputPayu.phone"
+																		placeholder="MobileNumber" name="phone"
+																		[ngModelOptions]="{standalone: true}">
+																</div>
+
+																<div class="form-group">
+
+																	<label>Product Info:</label>
+																	<textarea [(ngModel)]="inputPayu.productinfo"
+																		placeholder="text.." name="productinfo"
+																		[ngModelOptions]="{standalone: true}"></textarea>
+																</div>
+																<h6 class="errormessage1">{{payText}}</h6>
+																<button type="submit" class="btn btn-primary"
+																	(click)="payUaccept();">submit</button>
+															</form>
+														</div>
+
+													</div>
+												</div>
+												<!-- CREDIT CARD FORM ENDS HERE -->
+
+
+											</div>
+
+
+
+										</div>
+									</div>
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-------->
+					<!-----payment notificatipons---->
+
+
+
+					<div class="vxxSxNuuLkkgHb5IoF72t clearfix"
+						data-reactid=".12nh88wa2lo.1.0.2.0.1" style="margin-left: 38%;">
+						<div class="_3LdKugzs8-KlyVjUysxEUY"
+							[ngClass]="{ 'uEUZE7_IHudFXUh0sovFk': showStyle1, 'uEUZE7_IHudFXUh0sovFk': !showStyle1  }"
+							data-reactid=".12nh88wa2lo.1.0.2.0.1.1">
+							<span data-reactid=".12nh88wa2lo.1.0.2.0.1.0.0"
+								(click)="setClasses();">Ongoing</span>
+						</div>
+
+
+
+						<div class="_3LdKugzs8-KlyVjUysxEUY"
+							[ngClass]="{ 'uEUZE7_IHudFXUh0sovFk': !showStyle, 'uEUZE7_IHudFXUh0sovFk': showStyle  }"
+							data-reactid=".12nh88wa2lo.1.0.2.0.1.1">
+							<span data-reactid=".12nh88wa2lo.1.0.2.0.1.1.0"
+								(click)="setDiffClasses();">History</span>
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+	<!--  -->
+					<div class="hiddendivfade in"
+						[ngClass]="{'modal-backdrop': payAftr}"></div>
+
+
+
+					<div class="modal fade modal-ext "
+						[ngClass]="{'modal-open': payAftr}" id="modal-login"
+						tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+
+
+							<div class="modal-content">
+								<div class="modal-header">
+									<button aria-label="Close" class="close" data-dismiss="modal"
+										type="button">
+										<span aria-hidden="true" (click)="payAftrDismis()">×</span>
+									</button>
+
+
+									<!--  -->
+
+									<div>
+
+
+
+
+										<form [formGroup]="requestForm" novalidate>
+
+
+											<div class="col-xs-12 service-booking-box"
+												id="service-address">
+												<div formGroupName="paymentCash">
+													<h6>Kindly choose your Payment Method.</h6>
+													<fieldset class="text-left" style="margin-left: -18px;">
+														<input type="radio" id="radio3" name="paymentCash"
+															class="with-gap" formControlName="paymentCash"
+															value="paybycash"> <label for="radio3">Pay by cash</label>
+													</fieldset>
+													<fieldset class="text-left" style="margin-left: -26px;">
+														<input type="radio" checked="checked" class="with-gap"
+															id="radio4" name="paymentCash" formControlName="paymentCash"
+															value="payonline"> <label for="radio4">Pay Online</label>
+													</fieldset>
+
+													<hr>
+													<div class="footer">
+
+														<a class="btn btn-primary pull-right"
+															(click)="FinalpayDiss(values);">Payment<i
+															class="fa fa-chevron-right right"></i></a>
+													</div>
+												</div>
+											</div>
+
+
+
+										</form>
+
+
+
+									</div>
+
+									<!--  -->
+								</div>
+								<div class="container"></div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+					<!--  -->
+					
+
+
+
+
+
+
+					<!--  -->
+					<div class="hiddendivfade in"
+						[ngClass]="{'modal-backdrop': payInadv}"></div>
+
+
+
+					<div class="modal fade modal-ext "
+						[ngClass]="{'modal-open': payInadv}" id="modal-login"
+						tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+
+
+							<div class="modal-content">
+								<div class="modal-header">
+									<button aria-label="Close" class="close" data-dismiss="modal"
+										type="button">
+										<span aria-hidden="true" (click)="FinalpayDismis()">×</span>
+									</button>
+
+
+									<!--  -->
+
+									<div>
+
+
+
+
+										<form [formGroup]="requestForm" novalidate>
+
+
+											<div class="col-xs-12 service-booking-box"
+												id="service-address">
+												<div formGroupName="payment">
+													<h6>Kindly choose your Payment Method.</h6>
+													<fieldset class="text-left">
+														<input type="radio" id="radio1" name="payment"
+															class="with-gap" formControlName="payment"
+															value="paylater"> <label for="radio1">Pay
+															after Service</label>
+													</fieldset>
+													<fieldset class="text-left" style="margin-left: -26px;">
+														<input type="radio" checked="checked" class="with-gap"
+															id="radio2" name="payment" formControlName="payment"
+															value="payadvance"> <label for="radio2">Pay
+															in Advance</label>
+													</fieldset>
+
+													<hr>
+													<div class="footer">
+
+														<a class="btn btn-primary pull-right"
+															(click)="FinalpayDiss(values);">Payment<i
+															class="fa fa-chevron-right right"></i></a>
+													</div>
+												</div>
+											</div>
+
+
+
+										</form>
+
+
+
+									</div>
+
+									<!--  -->
+								</div>
+								<div class="container"></div>
+							</div>
+
+
+						</div>
+
+					</div>
+					
+					
+					
+					
+
+					<!--  -->
+
+ <!--  -->
+					<div class="hiddendivfade in"
+						[ngClass]="{'modal-backdrop': payAfterCancle}"></div>
+
+
+
+					<div class="modal fade modal-ext "
+						[ngClass]="{'modal-open': payAfterCancle}" id="modal-login"
+						tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+
+
+							<div class="modal-content">
+								<div class="modal-header">
+									<button aria-label="Close" class="close" data-dismiss="modal"
+										type="button">
+										<span aria-hidden="true" (click)="payAfterCancleDismis()">×</span>
+									</button>
+
+
+									<!--  -->
+
+									<div>
+
+
+
+
+										<form [formGroup]="requestForm" novalidate>
+
+
+											<div class="col-xs-12 service-booking-box"
+												id="service-address">
+												<div formGroupName="payment">
+													<h6 style="margin-left: -25px;color: red;">MAKE PAYMENT</h6>
+													
+													<fieldset class="text-left" style="margin-left: -26px;">
+														<input type="radio" checked="checked" class="with-gap"
+															id="radio2" name="payment" formControlName="payment"
+															value="payadvance"> <label for="radio2">Pay Now</label>
+													</fieldset>
+
+													<hr>
+													<div class="footer">
+
+														<a class="btn btn-primary pull-right"
+															(click)="FinalpayDiss(values);">Payment<i
+															class="fa fa-chevron-right right"></i></a>
+													</div>
+												</div>
+											</div>
+
+
+
+										</form>
+
+
+
+									</div>
+
+									<!--  -->
+								</div>
+								<div class="container"></div>
+							</div>
+
+
+						</div>
+
+					</div>
+					
+					
+					
+					
+
+
+
+					<!--  -->
+					<div class="hiddendivfade in"
+						[ngClass]="{'modal-backdrop': vendorNotAccepted}"></div>
+
+
+
+					<div class="modal fade modal-ext "
+						[ngClass]="{'modal-open': vendorNotAccepted}" id="modal-login"
+						tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+
+
+							<div class="modal-content">
+								<div class="modal-header">
+									<button aria-label="Close" class="close" data-dismiss="modal"
+										type="button">
+										<span aria-hidden="true" (click)="vendorNotDiss()">×</span>
+									</button>
+
+
+									<!--  -->
+
+									<div>
+										<h4>Vendor still not accepted your request. Once he
+											conforms your request you can proceed for payment!!!</h4>
+
+									</div>
+
+									<!--  -->
+								</div>
+								<div class="container"></div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+
+
+
+
+					<!--  -->
+					<div class="hiddendivfade in"
+						[ngClass]="{'modal-backdrop': estmatedCost}"></div>
+
+
+
+					<div class="modal fade modal-ext "
+						[ngClass]="{'modal-open': estmatedCost}" id="modal-login"
+						tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+
+
+							<div class="modal-content">
+								<div class="modal-header">
+									<button aria-label="Close" class="close" data-dismiss="modal"
+										type="button">
+										<span aria-hidden="true" (click)="estmatedCosts()">×</span>
+									</button>
+
+
+									<!--  -->
+
+									<div>
+										<h6>Your Order Summary.</h6>
+										<fieldset class="form-group">
+											<label>Expertise - {{serviceName}}</label>
+										</fieldset>
+										<fieldset class="form-group">
+											<label>Order Details - </label>
+											<ul>
+												<li>{{serviceName}} Type - {{automobile_type}}</li>
+												<li>Work - {{automobile_work}}</li>
+
+											</ul>
+										</fieldset>
+										<fieldset class="form-group">
+											<label>Appointment - </label>
+											<ul>
+												<li>Timeslot - {{timeslot}}</li>
+												<li>Date - {{daTe}}</li>
+											</ul>
+										</fieldset>
+										<fieldset class="form-group">
+											<label>Address - </label>
+											<ul>
+												<li>House - {{house}}</li>
+												<li>Landmark - {{landmark}}</li>
+												<li>Locality - {{locality}}</li>
+											</ul>
+										</fieldset>
+										<fieldset class="form-group">
+											<label>Estimated Cost - {{cost}} </label>
+										</fieldset>
+
+
+										<hr>
+										<div class="footer">
+
+											<a class="btn btn-primary btn-sm" (click)="payinAdvance();">Pay
+												in advance<i></i>
+											</a>
+										</div>
+									</div>
+
+									<!--  -->
+								</div>
+								<div class="container"></div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+
+
+
+					<!--  -->
+					<div class="hiddendivfade in"
+						[ngClass]="{'modal-backdrop': vendorNotraisebill}"></div>
+
+
+
+					<div class="modal fade modal-ext "
+						[ngClass]="{'modal-open': vendorNotraisebill}" id="modal-login"
+						tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+
+
+							<div class="modal-content">
+								<div class="modal-header">
+									<button aria-label="Close" class="close" data-dismiss="modal"
+										type="button">
+										<span aria-hidden="true" (click)="vendorNotraisebillDiss()">×</span>
+									</button>
+
+
+									<!--  -->
+
+									<div>
+										<h2>Vendor still haven't raise bill. Please wait...</h2>
+
+
+									</div>
+
+									<!--  -->
+								</div>
+								<div class="container"></div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+
+
+
+
+					<!--  -->
+					<div class="hiddendivfade in"
+						[ngClass]="{'modal-backdrop': registerd}"></div>
+
+
+
+					<div class="modal fade modal-ext "
+						[ngClass]="{'modal-open': registerd}" id="modal-login"
+						tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+
+
+							<div class="modal-content">
+								<div class="modal-header">
+									<button aria-label="Close" class="close" data-dismiss="modal"
+										type="button">
+										<span aria-hidden="true" (click)="Regsterd()">×</span>
+									</button>
+
+
+									<!--  -->
+
+									<div>
+										<h2>successfully registered!!!</h2>
+										<h3>Mr. {{name}} vendor will contact you!!!</h3>
+
+									</div>
+
+									<!--  -->
+								</div>
+								<div class="container"></div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+
+
+
+
+<!--  -->
+					<div class="hiddendivfade in"
+						[ngClass]="{'modal-backdrop': adminNotVendr}"></div>
+
+
+
+					<div class="modal fade modal-ext "
+						[ngClass]="{'modal-open': adminNotVendr}" id="modal-login"
+						tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+
+
+							<div class="modal-content">
+								<div class="modal-header">
+									<button aria-label="Close" class="close" data-dismiss="modal"
+										type="button">
+										<span aria-hidden="true" (click)="adminNotVendrAs()">×</span>
+									</button>
+
+
+									<!--  -->
+
+									<div>
+										<h2>Still vendor haven't assigned to you please wait and will be notified by SMS!!!</h2>
+										
+
+									</div>
+
+									<!--  -->
+								</div>
+								
+							</div>
+
+
+						</div>
+
+					</div>
+
+
+
+
+					<div *ngIf="bokingstatus" class="_2nUeykQI9-qi_usYeCneCQ clearfix"
+						data-reactid=".1dvp89izkjq.1.0.2.0.2">
+						<div class="_1QBwwusm4GLCON2rTb71wm"
+							data-reactid=".1dvp89izkjq.1.0.2.0.2.0">
+							<span data-reactid=".1dvp89izkjq.1.0.2.0.2.0.0">You don't
+								have any active projects right now</span> 
+								<a class="" href="/" data-reactid=".1dvp89izkjq.1.0.2.0.2.0.1">BOOK A SERVICE</a>
+						</div>
+					</div>
+					
+					<div *ngIf="histroys" class="_2nUeykQI9-qi_usYeCneCQ clearfix"
+						data-reactid=".1dvp89izkjq.1.0.2.0.2">
+						<div class="_1QBwwusm4GLCON2rTb71wm"
+							data-reactid=".1dvp89izkjq.1.0.2.0.2.0">
+							<span data-reactid=".1dvp89izkjq.1.0.2.0.2.0.0">You don't
+								have any active projects right now</span> 
+								<a class="" href="/" data-reactid=".1dvp89izkjq.1.0.2.0.2.0.1">BOOK A SERVICE</a>
+						</div>
+					</div>
+
+
+
+
+					<div *ngIf="showOngoing">
+
+						<div class="row">
+							<div *ngFor="let user of usersOngiong">
+
+								<div class="col-xs-6 col-sm-4">
+
+
+									<div class="_2nUeykQI9-qi_usYeCneCQ clearfix"
+										data-reactid=".12nh88wa2lo.1.0.2.0.2">
+										<div class="_2o5EPP2z8cqb1EAjqvomp8"
+											data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0">
+											<div class="_3UfmmeDxUiZKO79pCvhCIR"
+												data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0">
+												<div class="_1t9l6F1WS0bU8sMqm-ittl"
+													data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0.0">
+													<div class="_2i9VNLUuFkGHStUxPZAqxE"
+														data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0.0.0">{{user.ServiceType}}</div>
+
+													<!--  <div [ngSwitch]="user?.RequestType=='accepted'">
+												<div *ngSwitchCase="true   style="color: red;margin-left: -6%;cursor: pointer;" id={{user.id}} class="col-sm-4" (click)="cancel($event)">cancel</div>
+												-->
+
+													<div>
+														<div
+															style="color: red; margin-left: -6%; cursor: pointer;"
+															id={{user.id}} class="col-sm-4" (click)="cancel($event)">cancel</div>
+													</div>
+													<span class="eTXCSN3H6JoEkU502YGeP"
+														data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0.0.1">{{user.RequestType}}</span>
+													<div class="pMkv5S8PW117EQagNLdx0"
+														style="margin-left: 10%;"
+														data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0.0.2">{{user.date}}</div>
+												</div>
+											</div>
+											<div class="_-u_WFdHXqedCEboCNPa9j"
+												data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.1">
+												<div class="_36AEHv5j2sy2TTEeoKz5ST" style="color: #999;"
+													data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.1.2">{{user.message}}</div>
+											</div>
+											<!---href="/provider_response/59267d7a4235e9820c98b7fc"--->
+											<div [ngSwitch]="user?.boolean">
+												<a *ngSwitchCase="true" class="_2WeF94AI-64XP8vVKpHYqW"
+													id={{user.id}} style="color: red;"
+													data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.2"
+													(click)="Notifications({id:user.id,ServiceType:user.ServiceType,cost:user.cost,date:user.date,time:user.time,house:user.house,landmark:user.landmark,locality:user.locality,automobile_work:user.automobile_work,automobile_type:user.automobile_type,RequestType:user.RequestType});">PAYMENT</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-------------------------->
+
+
+					<div *ngIf="showHistory">
+
+						<div class="row">
+							<div *ngFor="let usershistory of usersHistory">
+
+								<div class="col-xs-6 col-sm-4">
+
+									<div data-reactid=".12nh88wa2lo.1.0.2.0.2">
+										<div class="_2o5EPP2z8cqb1EAjqvomp8"
+											data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0">
+											<div class="_3UfmmeDxUiZKO79pCvhCIR"
+												data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0">
+												<div class="_1t9l6F1WS0bU8sMqm-ittl"
+													data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0.0">
+													<div class="_2i9VNLUuFkGHStUxPZAqxE"
+														data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0.0.0">{{usershistory.ServiceType}}</div>
+													<span class="MQu4Zcf-nsxqTeiaojHZV"
+														data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0.0.1">{{usershistory.RequestType}}</span>
+													<div class="pMkv5S8PW117EQagNLdx0"
+														data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.0.0.2">{{usershistory.date}}</div>
+												</div>
+											</div>
+											<div class="_-u_WFdHXqedCEboCNPa9j"
+												data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.1">
+												<div class="_36AEHv5j2sy2TTEeoKz5ST" style="color: #999;"
+													data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.1.2">{{usershistory.message}}</div>
+											</div>
+											
+											<div [ngSwitch]="usershistory?.boolean">
+												<a *ngSwitchCase="true" class="_2WeF94AI-64XP8vVKpHYqW"
+													id={{user.id}} style="color: red;"
+													data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.2"
+													(click)="Notifications1({id:usershistory.id,ServiceType:usershistory.ServiceType,cost:usershistory.cost,date:usershistory.date,time:usershistory.time,house:usershistory.house,landmark:usershistory.landmark,locality:usershistory.locality,automobile_work:usershistory.automobile_work,automobile_type:usershistory.automobile_type,RequestType:usershistory.RequestType});">YOU HAVE A PAYMENT OPTION</a>
+											</div>
+											<!--	<a class="_2WeF94AI-64XP8vVKpHYqW" data-reactid=".12nh88wa2lo.1.0.2.0.2.1:$0.2" style="color: red;" >VIEW PROJECT</a>-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+					<!-------------------------->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

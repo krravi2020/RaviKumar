@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <link href="assets/css/family.css" rel="stylesheet">
+  <!-- <link rel="shortcut icon" type="image/png"/> -->
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/css/flaticon.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  
+  
+  
+    
+  <link href="assets/css/mdb.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/search.css">
+
+  <!-- Polyfill(s) for older browsers -->
+ <!-- <script src="https://unpkg.com/core-js/client/shim.min.js"></script>-->
+ <script src="assets/js/shim.min.js"></script>
+  <script src="assets/js/zone.js"></script>
+  <script src="assets/js/system.src.js"></script>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <!-- This SystemJS configuration loads umd packages from the web -->
+  <script src="systemjs.config.server.js"></script> 
+  
+  
+  <script>
+    System.import('main.js').catch(function(err){ console.error(err); });
+  </script>
+  
+  
+<script>
+
+</script>
+
+</head>
+
+<body>
+<script>
+
+
+	
+    window.fbAsyncInit = function() {
+    	//416016072091030
+      FB.init({
+        appId      : '2041306012763503',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.9'
+      });
+      FB.AppEvents.logPageView();   
+    };
+
+    (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+ </script>
+ 
+ 
+  <my-app>
+    <div class="loader-wrapper">
+     <!--   <div class="loader">
+        <img src="assets/img/logo.png" alt="">
+      </div>-->
+    </div>
+  </my-app>
+</body>
+</html>

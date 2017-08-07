@@ -1,0 +1,381 @@
+<header class="home">
+<!--  	<main-nav></main-nav>-->
+	<div class="view hm-black-strong">
+		<div class="full-bg-img flex-center">
+			<div role="document" class="modal-dialog" >
+				<div class="row" id="home">
+					<div class="col-md-8">
+						<div class="search-container">
+							<div class="container">
+  <h2 class="text-primary" >Calculator</h2>
+  <form >
+    <div class="form-group">
+      <label for="input1">Input 1:</label>
+      <input type="number" class="form-control"  [(ngModel)]="calculator.input1" id="input1" placeholder="Enter first input" name="input1">
+    </div>
+    <div class="form-group">
+      <label for="input2">Input 2:</label>
+      <input type="number" class="form-control" [(ngModel)]="calculator.input2" id="input2" placeholder="Enter second input" name="input2">
+    </div>
+    
+      <div class="form-group" >
+      <label for="output">Output:</label>
+      <input type="text" class="form-control" id="output" placeholder="Output" [(ngModel)]="calOut" name="output">
+    </div>
+   <!-- <button type="submit" class="btn btn-default">Submit</button>-->
+      <button type="submit" class="btn btn-info btn-sm">
+       <span class="glyphicon glyphicon-plus-sign" (click)='addValue(calculator)'>add</span>
+      </button>
+              
+       <button type="submit" class="btn btn-info btn-sm">
+       <span class="glyphicon glyphicon-minus-sign" (click)='subValue(calculator)'>sub</span>
+      </button>
+      
+       <button type="submit" class="btn btn-info btn-sm">
+       <span class="glyphicon glyphicon-asterisk" (click)='mulValue(calculator)'>mul</span>
+      </button>
+        
+       <button type="submit" class="btn btn-info btn-sm">
+       <span class="glyphicon glyphicon-italic" (click)='divValue(calculator)'>div</span>
+      </button>
+  </form>
+</div>
+							<!--  <h2 class="display-3 wow fadeIn doc-title" style="text-transform: uppercase;" data-wow-delay="0.2s">Beautiful Home 
+							</h2>
+							<h2 class="h2-responisive wow fadeIn" data-wow-delay="0.2s">Service Sathi in <u>{{homecity}}</u> 
+							</h2>-->
+						</div>
+					</div>
+				<!--  	<div class="col-lg-12">
+						<div class="search-container">
+							<div class="call-to-action"> 
+								<a class="book-btn" (click)="scrolltodown();">Book a Service</a>
+								<div class="arrow bounce">
+								</div>
+							</div>
+							<!-- <div class="heroSection borderOverlay" >
+								<div class="searchBoxContainer clearfix" >
+									<div class="CityContainerClass CityDropContainer">
+										<div class="CityBoxClass CityContainer"><span>Ahmedabad</span><span data-icon="$" class="downArrow"></span>
+										</div>
+									</div>
+									<div class="mobileCityBox clearfix">
+										<select class="cityBtn">
+											<option value="Select City" disabled="">Select City</option>
+											<option selected="" value="city_ahmedabad_v2">Ahmedabad</option>
+											<option value="city_bangalore_v2">Bangalore</option>
+											<option value="city_chennai_v2">Chennai</option>
+											<option value="city_delhi_v2">Delhi NCR</option>
+											<option value="city_hyderabad_v2" >Hyderabad</option>
+											<option value="city_kolkata_v2" >Kolkata</option>
+											<option value="city_mumbai_v2" >Mumbai</option>
+											<option value="city_pune_v2" >Pune</option>
+										</select>
+										<span class="downArrow"><span data-icon=""></span></span>
+									</div>
+									<div class="CTAContainer" >
+										<div class="searchDummy"><span class="_3Hgv4pKmla3V5OtJ031Mep" data-icon="b"></span><span >Search for a service</span>
+										</div>
+										<div class="SearchContainerClass DropDownContainerClass">
+											<input class="SearchInput SearchInputClass" type="search" placeholder="Search for a service">
+											<div>
+
+											</div>
+										</div>
+										<button class="SearchCTA" ><a class="" href="/allCategories">Search</a></button>
+									</div>
+								</div>
+							</div> 
+						</div>
+					</div>
+					
+					-->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<main>
+<!--  
+	<section class="section feature-box" >
+		<div class="container"   id="best-features">
+
+			<h1 class="section-heading wow fadeIn" data-wow-delay="0.2s">Our <span>Services</span></h1>
+			<!-- <p class="section-description lead wow fadeIn" data-wow-delay="0.4s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam. Quia, minima?</p> -->
+
+			<!--  <div class="row features-small ">
+
+				<div class="col-md-12 services-tiles-wrapper wow fadeIn" data-wow-delay="0.2s">
+					<div class="row">
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/automobile-mechanic']">
+							<div class="icon">
+								<div class="flaticon-auto-repair"></div>
+							</div>
+							<h3>Automobile Mechanics</h3>
+						</a>
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/appliance-repair']">
+							<div class="icon">
+								<div class="flaticon-app-repair"></div>
+							</div>
+							<h3>Appliance Repair</h3>
+						</a>
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/carpenter']">
+							<div class="icon">
+								<div class="flaticon-carpenter"></div>
+							</div>
+							<h3>Carpenter</h3>
+						</a>
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/plumber']">
+							<div class="icon">
+								<div class="flaticon-plumbing"></div>
+
+							</div>
+							<h3>Plumber</h3>
+						</a>
+					</div>
+					<div class="row">
+						<a class="services-tile col-md-3 col-xs-6"  [routerLink]="['/booking/electrician']">
+							<div class="icon">
+								<div class="flaticon-electrician"></div>
+
+							</div>
+							<h3>Electrician</h3>
+						</a>
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/painter']">
+							<div class="icon">
+								<div class="flaticon-painter"></div>
+
+							</div>
+							<h3>Painter</h3>
+						</a>
+
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/car-cleaning']">
+							<div class="icon">
+								<div class="flaticon-car-cleaner"></div>
+							</div>
+							<h3>Car Cleaner</h3>
+						</a>
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/driver']">
+							<div class="icon">
+								<div class="flaticon-driver"></div>
+
+							</div>
+							<h3>Driver</h3>
+						</a>
+					</div>
+					<div class="row">
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/pandit']">
+							<div class="icon">
+								<div class="flaticon-pandit"></div>
+
+							</div>
+							<h3>Pandit</h3>
+						</a>
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/laundry']">
+							<div class="icon">
+								<div class="flaticon-laundry"></div>
+
+							</div>
+							<h3>Laundry</h3>
+						</a>
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/home-cleaning']">
+							<div class="icon">
+								<div class="flaticon-home-cleaning"></div>
+
+							</div>
+							<h3>Home Cleaning</h3>
+						</a>
+						<a class="services-tile col-md-3 col-xs-6" [routerLink]="['/booking/cook']">
+							<div class="icon">
+								<div class="flaticon-cook"></div>
+
+							</div>
+							<h3>Cook</h3>
+						</a>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</section>-->
+<!-- 
+	<hr class="between-sections">
+
+	<section class="section" id="appDownload">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5 mb-r center-on-small-only wow fadeIn" data-wow-delay="0.3s">
+					<img src="assets/img/iphone.png" alt="" class="z-depth-0">
+				</div>
+				<div class="col-md-6 offset-md-1 mb-r wow fadeIn">
+					<div class="description">
+						<h2 class="h2-responsive wow fadeIn" data-wow-delay="0.2s">Download the Service Sathi App! 
+						</h2>
+						<hr class="hr-dark wow fadeIn" data-wow-delay="0.3s">
+						<p class="wow fadeIn" data-wow-delay="0.4s">Get real-time booking updates and status, live chat support, and exclusive app-only offers.</p>
+						<br>
+						<a class="btn btn-outline-black btn-lg wow fadeInLeft" data-wow-delay="0.5s">Learn more</a>
+						<a class="btn btn-outline-black btn-lg wow fadeInRight" href="https://play.google.com/store/apps/details?id=com.servicesathi" target="_blank" data-wow-delay="0.5s">Download <i class="fa fa-android left right" aria-hidden="true"></i>
+							<i class="fa fa-apple left" aria-hidden="true"></i>
+							<i class="fa fa-windows" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<hr class="between-sections">
+
+	<!-- <section class="section" id="testimonials">
+		<div class="container">
+			<h1 class="section-heading wow fadeIn" data-wow-delay="0.2s">Testimonials</h1>
+
+			<div class="row">
+				<div id="multi-item-example" class="carousel testimonial-carousel slide carousel-multi-item wow fadeIn" data-ride="carousel">
+
+					<div class="controls-top">
+						<a class="btn-floating btn-small mdb-color" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+						<a class="btn-floating btn-small mdb-color" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+					</div>
+
+					<ol class="carousel-indicators">
+						<li data-target="#multi-item-example" data-slide-to="0" class="active mdb-color"></li>
+						<li data-target="#multi-item-example" data-slide-to="1" class="mdb-color"></li>
+					</ol>
+
+					<div class="carousel-inner" role="listbox">
+
+						<div class="carousel-item active">
+							<div class="col-md-4">
+
+								<div class="testimonial">
+									<div class="avatar">
+										<img src="assets/img/testimonials/1.jpg" class="rounded-circle img-fluid">
+									</div>
+									<h4>Sunita</h4>
+									<h5>Software Engineer</h5>
+									<p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab.</p>
+
+									<div class="orange-text">
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star-half-full"> </i>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col-md-4 hidden-sm-down">
+								<div class="testimonial">
+									<div class="avatar">
+										<img src="assets/img/testimonials/3.jpg" class="rounded-circle img-fluid">
+									</div>
+									<h4>Himesh Patel</h4>
+									<h5>C.A</h5>
+									<p><i class="fa fa-quote-left"></i> Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid.</p>
+
+									<div class="orange-text">
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4 hidden-sm-down">
+								<div class="testimonial">
+									<div class="avatar">
+										<img src="assets/img/testimonials/5.jpg" class="rounded-circle img-fluid">
+									</div>
+									<h4>Geeta</h4>
+									<h5>Photographer</h5>
+									<p><i class="fa fa-quote-left"></i> Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum.</p>
+
+									<div class="orange-text">
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star-o"> </i>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="carousel-item">
+							<div class="col-md-4">
+
+								<div class="testimonial">
+									<div class="avatar">
+										<img src="assets/img/testimonials/4.jpg" class="rounded-circle img-fluid">
+									</div>
+									<h4>Blake Dabney</h4>
+									<h5>HR Manager</h5>
+									<p><i class="fa fa-quote-left"></i> Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid.</p>
+
+									<div class="orange-text">
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star-half-full"> </i>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col-md-4 hidden-sm-down">
+								<div class="testimonial">
+									<div class="avatar">
+										<img src="assets/img/testimonials/6.jpg" class="rounded-circle img-fluid">
+									</div>
+									<h4>Andrea Clay</h4>
+									<h5>Marketing & Sales</h5>
+									<p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab.</p>
+
+									<div class="orange-text">
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4 hidden-sm-down">
+								<div class="testimonial">
+									<div class="avatar">
+										<img src="assets/img/testimonials/7.jpg" class="rounded-circle img-fluid">
+									</div>
+									<h4>Cami Gosse</h4>
+									<h5>Phtographer</h5>
+									<p><i class="fa fa-quote-left"></i> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
+
+									<div class="orange-text">
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star"> </i>
+										<i class="fa fa-star-o"> </i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+</main>
